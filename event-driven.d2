@@ -1,0 +1,29 @@
+EventProducers: Event Producer {
+    producer: Producer
+}
+
+EventBroker: Event Broker {
+    topic1: Topic 1
+    topic2: Topic 2
+    topic3: Topic ...
+}
+
+EventConsumers: Event Consumers {
+    consumer1: Consumer 1
+    consumer2: Consumer 2
+    consumer3: Consumer 3
+}
+
+EventProducers.producer -> EventBroker: Event A
+EventProducers.producer -> EventBroker: Event B
+
+EventBroker.topic1 -> EventConsumers.consumer1: Event A
+EventBroker.topic2 -> EventConsumers.consumer2: Event A & B
+EventBroker.topic3 -> EventConsumers.consumer3: Event B
+
+explanation: |md
+    # Event Driven Architecture
+    Uses events to trigger and communicate between decoupled services.
+| {
+    near: EventProducers
+}
